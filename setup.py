@@ -19,6 +19,10 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-    'Click>=7'
+    'Click>=7',
+    'animation>=0.0.6'
+    ],
+    scripts=[
+    ''
     ]
 )

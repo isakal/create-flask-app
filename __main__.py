@@ -1,7 +1,9 @@
 import click
 import os
 import sys
-from creator import create_files, create_database
+from .create-flask-app.utils import create_file
+
+import time
 
 #TODO: create these 2 functions
 
@@ -15,7 +17,8 @@ def create_project(nodb, project_name):
 
     else:
         click.echo('yes db')
-    click.echo(f'{project_name} is the project name')
+    create_file(project_name)
+    click.echo(f'{project_name} is created')
 
 
 
