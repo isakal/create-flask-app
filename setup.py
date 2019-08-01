@@ -20,7 +20,8 @@ setuptools.setup(
     ],
     install_requires=[
     'Click>=7',
-    'animation>=0.0.6'
+    'animation>=0.0.6',
+    'colorama>=0.4.1'
     ],
     scripts=[
     ''
