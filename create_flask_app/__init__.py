@@ -2,21 +2,34 @@ import click
 import os
 import sys
 from .utils import create_file, create_init, create_folder
+from colorama import init, Fore, Back, Style
 
 import time
 
-#TODO: create these 2 functions
-
+NEWLINE = "\n"
+init()
 
 @click.command()
 @click.argument('project_name')
-@click.option('--nodb', is_flag=True, default=False, help='Will make a database and link it with flask app.')
-def create_project(nodb, project_name):
+@click.option('--api', is_flag=True, default=False, help='Will create Flask app that resembles API')
+@click.option('--spa', is_flag=True, default=False, help='Will create Flask app that resembles Single Page applications (only 1 endpoint)')
+@click.option('--nodb', is_flag=True, default=False, help='Will create Flask app without connecting to any database.')
+def create_project(project_name, api, spa, nodb):
     if nodb:
         click.echo('no db')
 
     else:
         click.echo('yes db')
-    #create_file(project_name)
-    click.echo(f'{project_name} is created')
-    #create_init()
+
+    try:
+        create_folder(project_name)
+        #create_init()
+    except FileExistsError:
+        click.echo(NEWLINE)
+        click.echo(Fore.RED + "That directory already exists. Please check your project name and try again.")
+        click.echo(Style.RESET_ALL)
+        sys.exit(1)
+    #ante = click.prompt("unesite ime: ")
+    #click.echo(ante)
+    click.echo(NEWLINE + "Creating a new Flask app in " + Fore.GREEN + f"~/{project_name}.")
+    click.echo(Style.RESET_ALL)

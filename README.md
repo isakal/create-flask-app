@@ -1,9 +1,9 @@
-# Flask Creator
-Easier flask project structure initialization for you
+# create-flask-app
+Flask port of [create-react-app](https://facebook.github.io/create-react-app/) meant
 
 
 ## Getting started
-These instructions will show you how to use flask_creator and spin up your first project.
+These instructions will show you how to use create-flask-app and spin up your first project.
 
 
 ### Prerequisites
@@ -11,15 +11,14 @@ These instructions will show you how to use flask_creator and spin up your first
 
 ### Installing
 ```
-pip install Click
-pip install flask_creator
+pip install create-flask-app
 ```
 
 ### Usage
 ```
-py flask_creator --help
+create-flask-app --help
 
-Usage: flask_creator [OPTIONS] PROJECT_NAME
+Usage: create-flask-app [OPTIONS] PROJECT_NAME
 
 Options:
   --nodb  Will make a database and link it with flask app.

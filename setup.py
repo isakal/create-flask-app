@@ -11,7 +11,7 @@ setuptools.setup(
     description="Package for initializing a flask project structure",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/isakal/flask_creator",
+    url="https://github.com/isakal/create_flask_app",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
