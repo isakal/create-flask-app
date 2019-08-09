@@ -11,8 +11,8 @@ init()
 
 @click.command()
 @click.argument('project_name')
-@click.option('--api', is_flag=True, default=False, help='Will create Flask app that resembles API')
-@click.option('--spa', is_flag=True, default=False, help='Will create Flask app that resembles Single Page applications (only 1 endpoint)')
+@click.option('--api', is_flag=True, default=False, help='Will create Flask app that resembles API.')
+@click.option('--spa', is_flag=True, default=False, help='Will create Flask app that resembles Single Page applications (only 1 endpoint).')
 @click.option('--nodb', is_flag=True, default=False, help='Will create Flask app without connecting to any database.')
 def create_project(project_name, api, spa, nodb):
     if nodb:

@@ -1,5 +1,5 @@
 # create-flask-app
-Flask port of [create-react-app](https://facebook.github.io/create-react-app/) meant
+Flask port of [create-react-app](https://facebook.github.io/create-react-app/) meant for initializing project structure of your next application.
 
 
 ## Getting started
@@ -21,8 +21,10 @@ create-flask-app --help
 Usage: create-flask-app [OPTIONS] PROJECT_NAME
 
 Options:
-  --nodb  Will make a database and link it with flask app.
+  --api   Will create Flask app that resembles API.
+  --spa   Will create Flask app that resembles Single Page applications (only
+          1 endpoint).
+  --nodb  Will create Flask app without connecting to any database.
   --help  Show this message and exit.
-
 ```
 <br> This will show all options and parameters
