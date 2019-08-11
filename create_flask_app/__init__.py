@@ -1,7 +1,7 @@
 import click
 import os
 import sys
-from .utils import create_file, create_init, create_folder
+from .utils import create_file, create_init, create_folder, create_venv
 from colorama import init, Fore, Back, Style
 
 import time
@@ -33,3 +33,5 @@ def create_project(project_name, api, spa, nodb):
     #click.echo(ante)
     click.echo(NEWLINE + "Creating a new Flask app in " + Fore.GREEN + f"~/{project_name}.")
     click.echo(Style.RESET_ALL)
+
+    create_venv(f"./{project_name}/venv/")
