@@ -1,6 +1,9 @@
-import os
+import subprocess
 import animation
 import venv
+import sys
+import os
+#from shellingham import detect_shell
 
 
 """Long running functions"""
@@ -9,7 +12,6 @@ import venv
 def create_venv(dir: str):
     virtualenv = venv.EnvBuilder(with_pip=True)
     virtualenv.create(f"./{dir}")
-    activate_venv()
 
 
 
@@ -27,8 +29,11 @@ def create_init(directory: str='./'):
     file = open(directory + '__init__.py', 'w').close()
 
 
-def activate_venv():
-    #activate_this = '/path/to/env/bin/activate_this.py'
-    #exec(open(this_file).read(), {'__file__': this_file})
-    # https://paste.pythondiscord.com/esokixuret.py
-    pass
+def activate_venv(project_name: str):
+    #shell = detect_shell()
+    if sys.platform == "win32":
+        subprocess.Popen(f"{project_name}\\venv\\Scripts\\activate.bat", shell=True)
+    elif sys.platform == "linux":
+        subprocess.Popen(f"source {project_name}/venv/bin/activate", shell=True)
+        subprocess.Popen("echo $SHELL", shell=True)
+    #TODO figure out how to execute shell commands without using Popen/system

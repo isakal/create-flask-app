@@ -1,5 +1,7 @@
 # create-flask-app
 Flask port of [create-react-app](https://facebook.github.io/create-react-app/) meant for initializing project structure of your next application.
+![GitHub](https://img.shields.io/github/license/isakal/create-flask-app)
+[![Trello](https://img.shields.io/badge/Trello-Contact%20Us-blue)](https://trello.com/b/Ve14hIA0/create-flask-app)
 
 
 ## Getting started
