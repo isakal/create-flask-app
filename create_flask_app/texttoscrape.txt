@@ -1,0 +1,7 @@
+This is some dummy text to scrape and transfer to a .py file.
+
+def foo(bar):
+  return("This is a function.")
+
+def bar(foo):
+  return("This is another function.")
