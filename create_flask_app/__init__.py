@@ -1,7 +1,7 @@
 import click
 import os
 import sys
-from .utils import create_file, create_init, create_folder, create_venv, activate_venv
+from .utils import create_file, create_init, create_folder, create_venv
 from colorama import init, Fore, Back, Style
 
 import time
@@ -40,8 +40,4 @@ def create_project(project_name, api, spa, nodb):
     click.echo(Style.RESET_ALL)
 
     create_venv(f'./{project_name}/venv/')
-
-    if sys.platform == 'win32':
-        activate_venv(f'./{project_name}/venv/Scripts')
-    elif sys.platform == 'linux':
-        activate_venv(project_name)
+    create_file(f'./{project_name}/saki.ini')
