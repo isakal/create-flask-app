@@ -1,15 +1,22 @@
-from configparser import ConfigParser
+import json
 import os
 
+PROJECT_NAME = "saki"
 
 # getting full path to the ini file
 dir = os.path.dirname(__file__)
-filename = os.path.join(dir, './code.ini')
+filename = os.path.join(dir, "./code.json")
 
-# instancing ConfigParser
-reader = ConfigParser()
-# reading the code.ini file
-reader.read(filename, encoding="ascii")
+# opening
+with open(filename) as f:
+    reader = json.load(f)
 
+# reading all the file objects in json file
+files = reader.get('files')
 
-print(reader.get('saki', 'key'))
+# iterating through all files and writing data to appropriate files
+for file in files:
+    with open(file.get("location").format(PROJECT_NAME), 'w') as f:
+        f.write(
+            "\n".join(file.get("content")).format(PROJECT_NAME)
+        )
