@@ -1,43 +1,52 @@
 import click
 import os
 import sys
-from .utils import create_file, create_init, create_folder, create_venv
+from .utils import create_file, create_folder, create_venv, shell, error_exit, copy_filetree
 from colorama import init, Fore, Back, Style
 
-import time
 
-NEWLINE = '\n'
+# initializing the screen for the colorama
 init()
+NEWLINE = '\n'
 
 
 @click.command()
 @click.argument('project_name')
 @click.option('--api', is_flag=True, default=False, help='Will create Flask app that resembles API.')
 @click.option('--spa', is_flag=True, default=False, help='Will create Flask app that resembles Single Page applications (only 1 endpoint).')
-@click.option('--nodb', is_flag=True, default=False, help='Will create Flask app without connecting to any database.')
-def create_project(project_name, api, spa, nodb):
-    if nodb:
-        click.echo('no db')
+def create_project(project_name, api, spa):
+    """
+    This function is responsible for interacting user with file creation.
+    Args:
+        project_name (string): This is the project name that will be used for project creation.
+        api (bool): This flag says if project is going to have api-like boilerplate structure.
+        spa (bool): This flag says if project is going to have spa-like boilerplate structure.
 
-    else:
-        click.echo('yes db')
+    Raises:
+        FileExistsError: If project_name param has the same value as some of the directories in the current directory.
 
+    """
+
+    # testing if project_name matches any of directories in the current directory
     try:
         create_folder(project_name)
-        # create_init()
+
     except FileExistsError:
-        click.echo(NEWLINE)
-        click.echo(
-            Fore.RED + 'That directory already exists. Please check your project name and try again.')
-        click.echo(Style.RESET_ALL)
-        sys.exit(1)
+        error_exit(
+            'That directory already exists. Please check your project name and try again.')
 
-    #ante = click.prompt('unesite ime: ')
-    # click.echo(ante)
-
+    # starting to create the project
     click.echo(NEWLINE + 'Creating a new Flask app in ' +
                Fore.GREEN + f'~/{project_name}.')
     click.echo(Style.RESET_ALL)
 
     create_venv(f'./{project_name}/venv/')
-    create_file(f'./{project_name}/saki.ini')
+
+    # deciding which boilerplate choose and creating it based on argument choice
+    dir = os.path.dirname(__file__)
+    if spa:
+        choice = os.path.join(dir, "spa")
+    elif api:
+        choice = os.path.join(dir, "api")
+
+    copy_filetree(choice, f"./{project_name}/")
