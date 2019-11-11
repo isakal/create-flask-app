@@ -26,8 +26,12 @@ def create_project(project_name, api, spa):
         FileExistsError: If project_name param has the same value as some of the directories in the current directory.
 
     """
+    # seeing if more than one option is selected
+    options = [spa, api]
+    if options.count(True) > 1:
+        error_exit("Please make sure only 1 option is selected and try again.")
 
-    # testing if project_name matches any of directories in the current directory
+    # seeing if project_name matches any of directories in the current directory
     try:
         create_folder(project_name)
 
@@ -35,7 +39,7 @@ def create_project(project_name, api, spa):
         error_exit(
             'That directory already exists. Please check your project name and try again.')
 
-    # starting to create the project
+    # Printing when project creation is starting
     click.echo(NEWLINE + 'Creating a new Flask app in ' +
                Fore.GREEN + f'~/{project_name}.')
     click.echo(Style.RESET_ALL)
@@ -46,6 +50,7 @@ def create_project(project_name, api, spa):
     dir = os.path.dirname(__file__)
     if spa:
         choice = os.path.join(dir, "spa")
+
     elif api:
         choice = os.path.join(dir, "api")
 
