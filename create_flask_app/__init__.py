@@ -10,10 +10,10 @@ init()
 NEWLINE = '\n'
 
 
-@click.command()
+@click.command(context_settings={"ignore_unknown_options": True})
 @click.argument('project_name')
-@click.option('--api', is_flag=True, default=False, help='Will create Flask app that resembles API.')
-@click.option('--spa', is_flag=True, default=False, help='Will create Flask app that resembles Single Page applications (only 1 endpoint).')
+@click.option('--api', is_flag=True, default=False, help='Create Flask app that resembles API.')
+@click.option('--spa', is_flag=True, default=False, help='Create Flask app that resembles Single Page applications (only 1 endpoint).')
 def create_project(project_name, api, spa):
     """
     This function is responsible for interacting user with file creation.
@@ -26,9 +26,13 @@ def create_project(project_name, api, spa):
         FileExistsError: If project_name param has the same value as some of the directories in the current directory.
 
     """
-    # seeing if more than one option is selected
-    options = [spa, api]
-    if options.count(True) > 1:
+    # getting arguments and options from the locals() function
+    options = locals()
+    # project_name is removed since we want to browse through options and project_name isn't necessary
+    options.pop('project_name')
+
+    # seeing if there are more than 2 options
+    if [i for i in options.values()].count(True) > 1:
         error_exit("Please make sure only 1 option is selected and try again.")
 
     # seeing if project_name matches any of directories in the current directory
@@ -39,19 +43,19 @@ def create_project(project_name, api, spa):
         error_exit(
             'That directory already exists. Please check your project name and try again.')
 
-    # Printing when project creation is starting
+    # printing when project creation is starting
     click.echo(NEWLINE + 'Creating a new Flask app in ' +
                Fore.GREEN + f'~/{project_name}.')
     click.echo(Style.RESET_ALL)
 
     create_venv(f'./{project_name}/venv/')
 
-    # deciding which boilerplate choose and creating it based on argument choice
-    dir = os.path.dirname(__file__)
-    if spa:
-        choice = os.path.join(dir, "spa")
-
-    elif api:
-        choice = os.path.join(dir, "api")
+    # deciding which boilerplate to choose and creating it based on argument choice
+    base_dir = os.path.dirname(__file__)
+    #choice = ""
+    # iterating over names and values in options dictionary
+    for name, value in options.items():
+        if value:
+            choice = os.path.join(base_dir, name)
 
     copy_filetree(choice, f"./{project_name}/")

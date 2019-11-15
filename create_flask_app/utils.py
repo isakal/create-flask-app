@@ -22,6 +22,7 @@ def create_venv(dir: str):
 
 
 def error_exit(message: str):
+    """Prints error message and exits the app with exit code 1."""
     echo("\n")
     echo(Fore.RED + message)
     echo(Style.RESET_ALL)
