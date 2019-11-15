@@ -12,6 +12,8 @@ NEWLINE = '\n'
 
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.argument('project_name')
+@click.option('--default', is_flag=True, default=True, help='Create very simple Flask app with all code in one file.')
+@click.option('-helloworld', 'hw', is_flag=True, default=False, help='Create Flask Hello World example.')
 @click.option('--api', is_flag=True, default=False, help='Create Flask app that resembles API.')
 @click.option('--spa', is_flag=True, default=False, help='Create Flask app that resembles Single Page applications (only 1 endpoint).')
 def create_project(project_name, api, spa):
@@ -31,7 +33,7 @@ def create_project(project_name, api, spa):
     # project_name is removed since we want to browse through options and project_name isn't necessary
     options.pop('project_name')
 
-    # seeing if there are more than 2 options
+    # seeing if there are more than 2 options selected
     if [i for i in options.values()].count(True) > 1:
         error_exit("Please make sure only 1 option is selected and try again.")
 
