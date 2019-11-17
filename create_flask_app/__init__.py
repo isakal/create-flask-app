@@ -54,11 +54,10 @@ def create_project(project_name, default, helloworld, api, spa):
 
     # deciding which boilerplate to choose and creating it based on argument choice
     base_dir = os.path.dirname(__file__)
-    #choice = ""
+
     # iterating over names and values in options dictionary
     for name, value in options.items():
         if value:
-            print(name, value)
             choice = os.path.join(base_dir, name)
 
     copy_filetree(choice, f"./{project_name}/")
