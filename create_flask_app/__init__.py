@@ -13,10 +13,10 @@ NEWLINE = '\n'
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.argument('project_name')
 @click.option('--default', is_flag=True, default=True, help='Create very simple Flask app with all code in one file.')
-@click.option('--helloworld', '--hw', is_flag=True, default=False, help='Create Flask Hello World example.')
+@click.option('--helloworld', is_flag=True, default=False, help='Create Flask Hello World example.')
 @click.option('--api', is_flag=True, default=False, help='Create Flask app that resembles API.')
-@click.option('--spa', is_flag=True, default=False, help='Create Flask app that resembles Single Page applications (only 1 endpoint).')
-def create_project(project_name, api, spa):
+@click.option('--spa', is_flag=True, default=False, help='Create Flask app that resembles Single Page application.')
+def create_project(project_name, default, helloworld, api, spa):
     """
     This function is responsible for interacting user with file creation.
     Args:
@@ -58,6 +58,7 @@ def create_project(project_name, api, spa):
     # iterating over names and values in options dictionary
     for name, value in options.items():
         if value:
+            print(name, value)
             choice = os.path.join(base_dir, name)
 
     copy_filetree(choice, f"./{project_name}/")
