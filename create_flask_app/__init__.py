@@ -23,8 +23,6 @@ def create_project(project_name, default, helloworld, api, spa):
         project_name (string): This is the project name that will be used for project creation.
         api (bool): This flag says if project is going to have api-like boilerplate structure.
         spa (bool): This flag says if project is going to have spa-like boilerplate structure.
-        helloworld (bool): This flag says if project is going to be Hello World example written with Flask.
-        default (bool): This flag says if project is going to have standard file structure that is used for writing web apps.
 
     Raises:
         FileExistsError: If project_name param has the same value as some of the directories in the current directory.
