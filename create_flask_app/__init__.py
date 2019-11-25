@@ -12,7 +12,7 @@ NEWLINE = '\n'
 
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.argument('project_name')
-@click.option('--default', is_flag=True, default=True, help='Create very simple Flask app with all code in one file.')
+@click.option('--default', is_flag=True, default=True, help='Create very simple Flask app with standard file structure.')
 @click.option('--helloworld', is_flag=True, default=False, help='Create Flask Hello World example.')
 @click.option('--api', is_flag=True, default=False, help='Create Flask app that resembles API.')
 @click.option('--spa', is_flag=True, default=False, help='Create Flask app that resembles Single Page application.')
