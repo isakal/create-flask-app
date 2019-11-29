@@ -16,7 +16,7 @@ app.register_blueprint(errors)
 def create_app():
     app = Flask(__name__)
     app.config.from_object(DevelopmentConfig if os.environ.get(
-        "PRODUCTION") else DevelopmentConfig)
+        "PRODUCTION").lower() == 'true' else DevelopmentConfig)
 
     from app.some_blueprint.routes import api
     from app.errors.handlers import errors
