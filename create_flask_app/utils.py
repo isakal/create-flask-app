@@ -3,9 +3,9 @@ import shutil
 import animation
 from venv import EnvBuilder
 from subprocess import call
-from colorama import init, Fore, Back, Style
 from sys import exit
 from click import echo
+from termcolor import colored
 
 
 """Long running functions"""
@@ -23,9 +23,9 @@ def create_venv(dir: str):
 
 def error_exit(message: str):
     """Prints error message and exits the app with exit code 1."""
-    echo("\n")
-    echo(Fore.RED + message)
-    echo(Style.RESET_ALL)
+    echo()
+    echo(colored(message, 'red'))
+    echo()
     exit(1)
 
 
@@ -53,3 +53,9 @@ def copy_filetree(source: str, destination: str, symlinks=True, ignore=None):
         else:
             if not os.path.exists(d) or os.stat(s).st_mtime - os.stat(d).st_mtime > 1:
                 shutil.copy2(s, d)
+
+
+def print_command(command: str, description: str):
+    echo('\t' + colored(command, 'cyan'))
+    echo('\t'*2 + description)
+    echo('\n')
