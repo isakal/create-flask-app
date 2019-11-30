@@ -1,6 +1,9 @@
 # Create-Flask-App [![Trello](https://img.shields.io/badge/Trello-Contact%20Us-blue)](https://trello.com/b/Ve14hIA0/create-flask-app) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/isakal/create-flask-app/pull/new/master)
 
 Flask port of [create-react-app](https://facebook.github.io/create-react-app/) that is used for initializing project structure of your next application.
+
+- [Creating an app](#creating-an-app) - How to create a new app.
+
 Create Flask app works on macOS, Windows and Linux.
 If something doesn't wrong, please [file an issue](https://github.com/isakal/create-flask-app/issues/new).
 If you have questions, suggestions or need help, please ask in our [Discord](https://discord.gg/qEnuyK) community.
@@ -16,7 +19,7 @@ cd my-app
 python run.py
 ```
 *(use correct version of [pip](https://pip.pypa.io/en/stable/) and [python](https://python.org/) according to your OS and python install)*
-THen open [http://localhost:5000](http://localhost:5000) to see your app.
+Then open [http://localhost:5000](http://localhost:5000) to see your app.
 When you are ready to deploy to production, set environment variable `PRODUCTION` to  `True` on your server of choice, clone the project onto your server and spin it up.
 
 
