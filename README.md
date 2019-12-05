@@ -23,9 +23,6 @@ Then open [http://localhost:5000](http://localhost:5000) to see your app.
 When you are ready to deploy to production, set environment variable `PRODUCTION` to  `True` on your server of choice, clone the project onto your server and spin it up.
 
 
-[//]: <> (Put a gif here.)
-
-
 ## Creating an app
 
 **You'll need to have Python 3.6 or higher on your local development machine** (but it's not required on the server).
