@@ -1,12 +1,12 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="createflaskapp",
-    version="0.0.1",
-    license="MIT License",
+    version="0.0.2",
+    license="MIT",
     author="Ivan Sakal",
     author_email="sakalivan4@gmail.com",
     description="Package for initializing a flask project structure",
