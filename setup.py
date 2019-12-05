@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="createflaskapp",
     version="0.0.1",
-    license="MIT",
+    license="MIT License",
     author="Ivan Sakal",
     author_email="sakalivan4@gmail.com",
     description="Package for initializing a flask project structure",
