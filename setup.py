@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="createflaskapp",
-    version="0.1",
+    version="1.0",
     license="MIT",
     author="Ivan Sakal",
     author_email="sakalivan4@gmail.com",
