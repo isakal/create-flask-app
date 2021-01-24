@@ -5,9 +5,8 @@ Flask port of [create-react-app](https://facebook.github.io/create-react-app/) t
 - [Creating an app](#creating-an-app) - How to create a new app.
 
 Create Flask app works on macOS, Windows and Linux.
-If something doesn't wrong, please [file an issue](https://github.com/isakal/create-flask-app/issues/new).
-If you have questions, suggestions or need help, please ask in our [Discord](https://discord.gg/qEnuyK) community.
-
+If something doesn't work, please [file an issue](https://github.com/isakal/create-flask-app/issues/new).
+If you have questions, suggestions or need help, [feel free to open an issue](https://github.com/isakal/create-flask-app/issues/new).
 
 ## Quick overview 
 
