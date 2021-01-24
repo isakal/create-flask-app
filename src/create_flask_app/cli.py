@@ -1,7 +1,6 @@
 import click
 import os
-import sys
-from .utils import *
+from utils import copy_filetree, create_file, create_folder, create_venv, error_exit, print_command, shell
 from termcolor import colored
 from platform import system
 
