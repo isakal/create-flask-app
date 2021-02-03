@@ -1,4 +1,4 @@
-# Create-Flask-App [![Trello](https://img.shields.io/badge/Trello-Contact%20Us-blue)](https://trello.com/b/Ve14hIA0/create-flask-app) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/isakal/create-flask-app/pull/new/master)
+# Create-Flask-App [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/isakal/create-flask-app/pull/new/master)
 
 Flask port of [create-react-app](https://facebook.github.io/create-react-app/) that is used for initializing project structure of your next application.
 
