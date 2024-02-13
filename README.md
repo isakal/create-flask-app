@@ -24,7 +24,7 @@ When you are ready to deploy to production, set environment variable `PRODUCTION
 
 ## Creating an app
 
-**You'll need to have Python 3.6 or higher on your local development machine** (but it's not required on the server).
+**You'll need to have Python 3.8 or higher on your local development and server machine**.
 To create a new app, you can run :
 
 ### bash
